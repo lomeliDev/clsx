@@ -8,7 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        nodejs: [8, 10, 12, 14, 16, 18]
+        # Node 8 retirado: no entiende los literales BigInt (`10n`), que son
+        # sintaxis desde Node 10.4. Las clases de entrada Number/BigInt que
+        # suma el taller rompen el parseo en Node 8 y, por fail-fast, cancelan
+        # el resto de la matriz. El check de referencia es taller-ci (Node 22);
+        # ci.yml conserva 10..18, las versiones donde el fork sí puede correr.
+        nodejs: [10, 12, 14, 16, 18]
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
