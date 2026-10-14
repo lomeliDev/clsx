@@ -154,3 +154,7 @@ clsx('text-base', props.active && 'text-primary', props.className);
 ## License
 
 MIT © [Luke Edwards](https://lukeed.com)
+
+## Nota final
+
+Este proyecto es un fork de taller de `clsx` para ejercicios de ingeniería; mantiene la API y los tipos del original.
