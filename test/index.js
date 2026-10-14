@@ -43,6 +43,12 @@ test('numbers (variadic)', () => {
 	assert.is(fn(1, 2), '1 2');
 });
 
+test('bigints', () => {
+	assert.is(fn(10n), '10');
+	assert.is(fn(1, 2n, 3), '1 2 3');
+	assert.is(fn(0n), ''); // 0n es falsy: se descarta, como 0
+});
+
 test('objects', () => {
 	assert.is(fn({}), '');
 	assert.is(fn({ foo:true }), 'foo');

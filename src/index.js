@@ -1,7 +1,7 @@
 function toVal(mix) {
 	var k, y, str='';
 
-	if (typeof mix === 'string' || typeof mix === 'number') {
+	if (typeof mix === 'string' || typeof mix === 'number' || typeof mix === 'bigint') {
 		str += mix;
 	} else if (typeof mix === 'object') {
 		if (Array.isArray(mix)) {
