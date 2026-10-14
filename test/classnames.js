@@ -90,4 +90,15 @@ test('(compat) handles all types of truthy and falsy property values as expected
 	assert.is(out, 'nonEmptyString whitespace function emptyObject nonEmptyObject emptyList nonEmptyList greaterZero');
 });
 
+test('(compat) ignores inherited (prototype) object keys', () => {
+	function Foo() { this.own = true; }
+	Foo.prototype.inherited = true;
+	assert.is(clsx(new Foo()), 'own');
+
+	const proto = { parent: true };
+	const obj = Object.create(proto);
+	obj.child = true;
+	assert.is(clsx(obj), 'child');
+});
+
 test.run();
