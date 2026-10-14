@@ -105,6 +105,8 @@ clsx({ foo: true });
 //=> ""
 ```
 
+> **Note:** `clsx/lite` ships its own type declarations (`lite.d.ts` / `lite.d.mts`), so the **ONLY** string rule is enforced at compile time too: `clsx({ foo: true })` and `clsx(['a'])` are type errors instead of silent no-ops. The falsey values that `lite` discards anyway (`false`, `null`, `undefined`, `0`) are still accepted, so the `cond && 'class'` pattern keeps type-checking.
+
 ## Benchmarks
 
 For snapshots of cross-browser results, check out the [`bench`](bench) directory~!
