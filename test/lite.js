@@ -44,6 +44,10 @@ test('non-strings', () => {
 	assert.is(fn(NaN), '');
 	assert.is(fn(0), '');
 
+	// bigint
+	assert.is(fn(10n), '');
+	assert.is(fn(1n, 2n), '');
+
 	// objects
 	assert.is(fn({}), '');
 	assert.is(fn(null), '');
