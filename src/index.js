@@ -1,3 +1,5 @@
+var hasOwn = {}.hasOwnProperty;
+
 function toVal(mix) {
 	var k, y, str='';
 
@@ -16,7 +18,7 @@ function toVal(mix) {
 			}
 		} else {
 			for (y in mix) {
-				if (mix[y]) {
+				if (hasOwn.call(mix, y) && mix[y]) {
 					str && (str += ' ');
 					str += y;
 				}
