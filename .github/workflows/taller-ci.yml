@@ -1,0 +1,35 @@
+name: taller-ci
+
+# CI mínimo para el taller: instala, construye y prueba en Node 22.
+# A diferencia de ci.yml, no publica cobertura (sin secreto CODECOV_TOKEN,
+# que no existe en un fork) ni usa versiones de Node ya retiradas.
+on:
+  push:
+    branches-ignore:
+      - gh-pages
+  pull_request:
+
+jobs:
+  test:
+    name: Node.js v22
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      # El loader `esm` del `npm test` histórico no funciona en Node >= 20;
+      # en Node 22 las pruebas uvu se corren con el cargador tsx.
+      - name: Test
+        run: |
+          npx -y tsx test/index.js
+          npx -y tsx test/lite.js
+          npx -y tsx test/classnames.js
