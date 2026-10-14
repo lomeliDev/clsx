@@ -57,7 +57,7 @@ Returns: `String`
 #### input
 Type: `Mixed`
 
-The `clsx` function can take ***any*** number of arguments, each of which can be an Object, Array, Boolean, or String.
+The `clsx` function can take ***any*** number of arguments, each of which can be an Object, Array, Boolean, or String. Classes are returned in the order they appear in the arguments.
 
 > **Important:** _Any_ falsey values are discarded!<br>Standalone Boolean values are discarded as well.
 
