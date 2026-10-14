@@ -154,3 +154,5 @@ clsx('text-base', props.active && 'text-primary', props.className);
 ## License
 
 MIT © [Luke Edwards](https://lukeed.com)
+
+Nota kimi: esta documentación se mantiene al día con los cambios del proyecto.
